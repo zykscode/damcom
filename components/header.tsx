@@ -17,6 +17,7 @@ const Header = ({ children }: any) => {
     <header className="sticky top-0 flex h-[6rem] justify-between overflow-hidden align-middle md:h-[6rem] lg:h-[8rem] ">
       <Logo />
       <motion.div
+        initial={false}
         animate={isOpen ? 'open' : 'close'}
         variants={container}
         className=" -mr-4 -mt-4 size-[6rem] lg:-mt-6 lg:size-[8rem] "

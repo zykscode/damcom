@@ -1,9 +1,11 @@
 import '#/styles/globals.css';
 
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+import Header from '#/components/header';
+import RotatingLogo from '#/components/rotatingLogo';
+import { TailwindIndicator } from '#/components/tailwind-indicator';
+import { Atyp, Suisse } from '#/lib/customFonts';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={` bg-prm text-dark flex flex-col overflow-scroll ${Suisse.variable} ${Atyp.variable} overflow-hidden`}
+      >
+        <Header />
+        <div className=" text-purple min-h-screen ">{children}</div>
+        <RotatingLogo />
+        <TailwindIndicator />
+      </body>
     </html>
   );
 }

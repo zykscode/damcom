@@ -23,7 +23,7 @@ const Path = (
   <motion.path
     fill="transparent"
     strokeWidth="2.875"
-    stroke="hsl(0, 0%, 18%)"
+    stroke="yellow"
     strokeLinecap="round"
     {...props}
   />

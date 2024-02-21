@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` bg-prm text-dark flex flex-col overflow-scroll ${Suisse.variable} ${Atyp.variable} overflow-hidden`}
+        className={` text-dark flex flex-col overflow-scroll bg-[#e9c6dd] ${Suisse.variable} ${Atyp.variable} overflow-hidden`}
       >
         <Header />
         <div className=" text-purple min-h-screen ">{children}</div>

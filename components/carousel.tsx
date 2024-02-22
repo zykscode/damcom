@@ -14,7 +14,7 @@ export function CarouselSpacing() {
     <Carousel opts={{ loop: true }} className="w-full bg-green-300">
       <CarouselContent className="mx-1 overflow-visible">
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="basis-[90%] pl-1 md:basis-1/3">
+          <CarouselItem key={index} className="basis-[90%] pl-1 md:basis-[30%]">
             <div className="p-1">
               <Card className=" bg-yellow-500">
                 <CardContent className="flex aspect-square items-center justify-center p-6">

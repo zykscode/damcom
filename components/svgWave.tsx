@@ -15,8 +15,7 @@ const SVGComponent = (
     {...props}
   >
     <path
-      //   fill="#E9C6DD"
-      fill="yellow"
+      fill="#E9C6DD"
       d="M804,0v16.671c0,0-204.974,33.496-401.995,33.496C204.974,50.167,0,16.671,0,16.671V0H804z"
     />
   </svg>

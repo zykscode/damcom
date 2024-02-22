@@ -2,7 +2,6 @@
 
 'use client';
 
-import { ArrowLeftIcon, ArrowRightIcon } from '@radix-ui/react-icons';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
@@ -10,6 +9,8 @@ import * as React from 'react';
 
 import { Button } from '#/components/ui/button';
 import { cn } from '#/lib/utils';
+
+import NextIcon from '../svgNextIcon';
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -208,17 +209,16 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        'absolute  h-8 w-8 rounded-full',
-        orientation === 'horizontal'
-          ? '-left-12 top-1/2 -translate-y-1/2'
-          : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
+        'relative group h-12 w-12 p-2 overflow-hidden rounded-full',
+        orientation === 'horizontal' ? '' : '',
         className,
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeftIcon className="size-4" />
+      <div className="absolute size-full translate-x-[-100%] translate-y-[-100%] rounded-full  bg-green-300 transition duration-700 ease-out group-hover:translate-x-0 group-hover:translate-y-0"></div>
+      <NextIcon className="" />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -237,17 +237,16 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        'absolute h-8 w-8 rounded-full',
-        orientation === 'horizontal'
-          ? '-right-12 top-1/2 -translate-y-1/2'
-          : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
+        'relative group overflow-hidden p-2 h-12 w-12 rounded-full',
+        orientation === 'horizontal' ? '' : '',
         className,
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRightIcon className="size-4" />
+      <div className="absolute size-full translate-x-[100%] translate-y-[-100%] rounded-full  bg-green-300 transition duration-700 ease-out group-hover:translate-x-0 group-hover:translate-y-0"></div>
+      <NextIcon className="rotate-180" />
       <span className="sr-only">Next slide</span>
     </Button>
   );

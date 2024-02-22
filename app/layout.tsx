@@ -2,6 +2,7 @@ import '#/styles/globals.css';
 
 import type { Metadata } from 'next';
 
+import FollowPointer from '#/components/followPointer';
 import Header from '#/components/header';
 import RotatingLogo from '#/components/rotatingLogo';
 import { TailwindIndicator } from '#/components/tailwind-indicator';
@@ -28,6 +29,7 @@ export default function RootLayout({
         </div>
         <RotatingLogo />
         <TailwindIndicator />
+        <FollowPointer />
       </body>
     </html>
   );

@@ -14,7 +14,7 @@ const Header = ({ children }: any) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
 
   return (
-    <header className="sticky top-0 flex h-[6rem] justify-between overflow-hidden align-middle md:h-[6rem] lg:h-[8rem] ">
+    <header className="sticky top-0 z-20 flex h-[6rem] justify-between overflow-hidden align-middle md:h-[6rem] lg:h-[8rem] ">
       <Logo />
       <motion.div
         initial={false}

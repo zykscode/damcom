@@ -19,10 +19,10 @@ export function CarouselSpacing() {
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem
               key={index}
-              className="basis-[90%] pl-1 md:basis-[30%]"
+              className="basis-[90%] pl-[0.3rem] md:basis-[30%]"
             >
               <div className="p-1">
-                <Card className="h-full bg-green-200 md:h-[40vw]">
+                <Card className="h-full bg-drk md:h-[40vw]">
                   <CardContent className="flex h-[30em] min-h-[40vw] items-center justify-center p-6 md:size-full">
                     <span className="text-2xl font-semibold">{index + 1}</span>
                   </CardContent>

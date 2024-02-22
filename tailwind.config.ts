@@ -20,6 +20,8 @@ const config = {
     },
     extend: {
       colors: {
+        prm: 'hsl(var(--prm))',
+        drk: 'hsl(var(--drk))',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

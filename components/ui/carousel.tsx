@@ -209,7 +209,7 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        'relative group h-12 w-12 p-2 overflow-hidden rounded-full',
+        'relative group hover:border-prm transition duration-700 border-drk  border-2   h-12 w-12 p-2 hover:p-0 overflow-hidden rounded-full',
         orientation === 'horizontal' ? '' : '',
         className,
       )}
@@ -217,8 +217,8 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <div className="absolute size-full translate-x-[-100%] translate-y-[-100%] rounded-full  bg-green-300 transition duration-700 ease-out group-hover:translate-x-0 group-hover:translate-y-0"></div>
-      <NextIcon className="" />
+      <div className="absolute  size-full translate-x-[-100%] translate-y-[-100%] rounded-full  bg-drk transition duration-700 ease-out group-hover:translate-x-0 group-hover:translate-y-0"></div>
+      <NextIcon className="z-10 group-hover:fill-prm" />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -237,7 +237,7 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        'relative group overflow-hidden p-2 h-12 w-12 rounded-full',
+        'relative group border-drk border-2 hover:border-prm hover:border-1 overflow-hidden p-2 hover:p-0 h-12 w-12 rounded-full',
         orientation === 'horizontal' ? '' : '',
         className,
       )}
@@ -245,8 +245,8 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <div className="absolute size-full translate-x-[100%] translate-y-[-100%] rounded-full  bg-green-300 transition duration-700 ease-out group-hover:translate-x-0 group-hover:translate-y-0"></div>
-      <NextIcon className="rotate-180" />
+      <div className="absolute size-full translate-x-[100%] translate-y-[-100%] rounded-full bg-drk transition  duration-700 ease-out hover:bg-drk group-hover:translate-x-0 group-hover:translate-y-0"></div>
+      <NextIcon className="rotate-180 group-hover:fill-prm" />
       <span className="sr-only">Next slide</span>
     </Button>
   );

@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 
 import AnimatedCursor from '#/components/animatedCursor';
 import Header from '#/components/header';
+import MouseTracker from '#/components/mouseTracker';
 import RotatingLogo from '#/components/rotatingLogo';
 import { TailwindIndicator } from '#/components/tailwind-indicator';
 import { Atyp, Suisse } from '#/lib/customFonts';
@@ -29,7 +30,45 @@ export default function RootLayout({
         </div>
         <RotatingLogo />
         <TailwindIndicator />
-        <AnimatedCursor />
+        <AnimatedCursor
+          outerStyle={{
+            border: '3px solid hsl(var(--drk))',
+            backgroundColor: '#eed9e7',
+          }}
+          innerStyle={{
+            backgroundColor: 'hsl(var(--drk))',
+          }}
+          clickables={[
+            'a',
+            'input[type="text"]',
+            'input[type="email"]',
+            'input[type="number"]',
+            'input[type="submit"]',
+            'input[type="image"]',
+            'label[for]',
+            'select',
+            'textarea',
+            'button',
+            '.link',
+            {
+              target: '.custom',
+              options: {
+                innerSize: 900,
+                innerStyle: {
+                  backgroundColor: 'hsl(var(--lgt))',
+                },
+                outerSize: 12,
+                color: '255, 255, 255',
+                outerAlpha: 0.3,
+                innerScale: 0.7,
+                outerScale: 5,
+              },
+            },
+          ]}
+        >
+          Drag
+        </AnimatedCursor>
+        <MouseTracker />
       </body>
     </html>
   );

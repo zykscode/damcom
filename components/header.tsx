@@ -20,7 +20,7 @@ const Header = ({ children }: any) => {
         initial={false}
         animate={isOpen ? 'open' : 'close'}
         variants={container}
-        className=" -mr-4 -mt-4 size-[6rem] lg:-mt-6 lg:size-[8rem] "
+        className=" cursor-drag -mr-4 -mt-4 size-[6rem] lg:-mt-6 lg:size-[8rem] "
       >
         {children}
         <MenuToggle toggle={() => toggleOpen()} />

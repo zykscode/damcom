@@ -22,6 +22,7 @@ const config = {
       colors: {
         prm: 'hsl(var(--prm))',
         drk: 'hsl(var(--drk))',
+        lgt: 'hsl(var(--lgt))',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

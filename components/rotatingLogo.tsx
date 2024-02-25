@@ -5,7 +5,6 @@
 import {
   motion,
   useAnimationFrame,
-  useMotionValueEvent,
   useScroll,
   useSpring,
   useTransform,
@@ -46,9 +45,9 @@ const RotatingLogo = ({ baseVelocity = 100 }) => {
     // baseX.set(baseX.get() + moveBy);
   });
 
-  useMotionValueEvent(scrollY, 'change', (latest) =>
-    console.log(latest, velocityFactor.getVelocity()),
-  );
+  // useMotionValueEvent(scrollY, 'change', (latest) =>
+  //   // console.log(latest, velocityFactor.getVelocity()),
+  // );
   return (
     <motion.div
       transition={{

@@ -8,42 +8,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useEventListener } from '#/hooks/useEventListener';
 import useIsTouchdevice from '#/hooks/useIsTouchdevice';
 import find from '#/lib/find';
-
-interface Clickable {
-  target: string;
-}
-
-interface Options {
-  children?: React.ReactNode;
-  color: string;
-  innerScale: number;
-  innerSize: number;
-  innerStyle?: React.CSSProperties;
-  outerAlpha: number;
-  outerScale: number;
-  outerSize: number;
-  outerStyle?: React.CSSProperties;
-}
-
-interface Coordinates {
-  x: number;
-  y: number;
-}
-
-interface AnimatedCursorProps {
-  clickables?: Array<string | Clickable> | any;
-  children?: React.ReactNode;
-  color?: string;
-  innerScale?: number;
-  innerSize?: number;
-  innerStyle?: React.CSSProperties;
-  outerAlpha?: number;
-  outerScale?: number;
-  outerSize?: number;
-  outerStyle?: React.CSSProperties;
-  showSystemCursor?: boolean;
-  trailingSpeed?: number;
-}
+import type {
+  AnimatedCursorProps,
+  Clickable,
+  Coordinates,
+  Options,
+} from '#/types/types';
 
 function CursorCore({
   clickables = [
@@ -62,11 +32,11 @@ function CursorCore({
   children,
   color = 'hsl(var(--drk))',
   innerScale = 1,
-  innerSize = 8,
+  innerSize = 90,
   innerStyle,
   outerAlpha = 0.4,
   outerScale = 1,
-  outerSize = 80,
+  outerSize = 90,
   outerStyle,
   showSystemCursor = false,
   trailingSpeed = 8,
@@ -334,7 +304,9 @@ function CursorCore({
     alignItems: 'center',
     position: 'fixed',
     borderRadius: '50%',
+    borderColor: 'red',
     pointerEvents: 'none',
+    border: '24px',
     transform: 'translate(-50%, -50%)',
     transition:
       'opacity 0.15s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out',
@@ -344,14 +316,15 @@ function CursorCore({
     cursorInner: {
       width: !options.children ? '150px' : 'auto',
       height: !options.children ? '150px' : 'auto',
-      backgroundColor: !options.children ? 'hsl(var(--drk))' : 'transparent',
+      border: '16px',
+      backgroundColor: !options.children ? 'hsl(var(--prm))' : 'transparent',
       ...coreStyles,
       ...(options.innerStyle && options.innerStyle),
     },
     cursorOuter: {
       width: 'options.outerSize',
       height: options.outerSize,
-      backgroundColor: `rgba(225, 255, 2, ${options.outerAlpha})`,
+      //   backgroundColor: `green`,
       ...coreStyles,
       ...(options.outerStyle && options.outerStyle),
     },
@@ -359,12 +332,20 @@ function CursorCore({
 
   return (
     <>
-      <div ref={cursorOuterRef} style={styles.cursorOuter} />
-      <div ref={cursorInnerRef} style={styles.cursorInner}>
+      <div
+        ref={cursorOuterRef}
+        className="yellow border-8 bg-yellow-300 "
+        style={styles.cursorOuter}
+      />
+      <div
+        className="smallerCursor   "
+        ref={cursorInnerRef}
+        style={styles.cursorInner}
+      >
         <div
           style={{
             opacity: !options.children ? 0 : 1,
-            transition: 'opacity 0.3s ease-in-out',
+            transition: 'all 0.3s ease-in-out',
           }}
         >
           {options.children}

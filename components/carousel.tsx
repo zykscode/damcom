@@ -12,7 +12,10 @@ import {
 
 export function CarouselSpacing() {
   return (
-    <Carousel opts={{ loop: true }} className="relative mx-auto w-full ">
+    <Carousel
+      opts={{ loop: true }}
+      className="cursor-drag relative mx-auto w-full "
+    >
       <div>
         <SVGComponent className=" absolute z-20" />
         <CarouselContent className="mx-1 overflow-visible">

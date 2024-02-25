@@ -35,7 +35,10 @@ function MenuToggle({ toggle }: any) {
       className="flex size-full flex-col justify-center rounded-full border-2 "
       variants={circle}
     >
-      <motion.button className="size-1/2 self-center" onClick={toggle}>
+      <motion.button
+        className="cursor-op size-1/2 self-center"
+        onClick={toggle}
+      >
         <svg className="" height={'100%'} width={'100%'} viewBox="0 0 100 100">
           <Path
             variants={{

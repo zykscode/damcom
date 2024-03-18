@@ -7,6 +7,7 @@
 // AnimatedCursor.tsx
 import React, { useEffect, useState } from 'react';
 
+import useIsTouchDevice from '#/hooks/useIsTouchdevice';
 import type { AnimatedCursorProps } from '#/types/types';
 
 import CursorCore from './CursorCore';
@@ -21,7 +22,13 @@ import CursorCore from './CursorCore';
  * @returns {JSX.Element | null} Rendered component or null if touch device
  */
 function AnimatedCursor(props: AnimatedCursorProps) {
+  const isTouchDevice = useIsTouchDevice();
   const [isVisible, setIsVisible] = useState<boolean>(true);
+
+  // Don't render the cursor on touch devices
+  if (isTouchDevice) {
+    return true;
+  }
 
   // Hide the system cursor
   useEffect(() => {

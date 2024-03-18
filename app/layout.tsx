@@ -1,8 +1,8 @@
 import '#/styles/globals.css';
 
 import type { Metadata } from 'next';
+import AnimatedCursor from 'react-animated-cursor';
 
-import AnimatedCursor from '#/components/animatedCursor';
 import Header from '#/components/header';
 import RotatingLogo from '#/components/rotatingLogo';
 import { TailwindIndicator } from '#/components/tailwind-indicator';
@@ -30,6 +30,27 @@ export default function RootLayout({
         <RotatingLogo />
         <TailwindIndicator />
         <AnimatedCursor
+          innerSize={8}
+          outerSize={8}
+          color="193, 11, 111"
+          outerAlpha={0.2}
+          innerScale={0.7}
+          outerScale={5}
+          clickables={[
+            'a',
+            'input[type="text"]',
+            'input[type="email"]',
+            'input[type="number"]',
+            'input[type="submit"]',
+            'input[type="image"]',
+            'label[for]',
+            'select',
+            'textarea',
+            'button',
+            '.link',
+          ]}
+        />
+        {/* <AnimatedCursor
           outerStyle={{
             border: '3px solid hsl(var(--drk))',
             backgroundColor: '#eed9e7',
@@ -66,7 +87,7 @@ export default function RootLayout({
           ]}
         >
           Drag
-        </AnimatedCursor>
+        </AnimatedCursor> */}
       </body>
     </html>
   );

@@ -34,7 +34,7 @@ export function CarouselSpacing() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <SVGComponent className=" absolute  z-40 translate-y-[-100%] -rotate-180" />
+        <SVGComponent className=" absolute  z-40 -translate-y-full -rotate-180" />
         <div className=" container right-0 z-30 flex justify-center gap-4 ">
           <CarouselPrevious />
           <CarouselNext />

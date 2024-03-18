@@ -217,7 +217,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <div className="absolute  size-full translate-x-[-100%] translate-y-[-100%] rounded-full  bg-drk transition duration-700 ease-out group-hover:translate-x-0 group-hover:translate-y-0"></div>
+      <div className="absolute  size-full -translate-x-full -translate-y-full rounded-full  bg-drk transition duration-700 ease-out group-hover:translate-x-0 group-hover:translate-y-0"></div>
       <NextIcon className="z-10 group-hover:fill-prm" />
       <span className="sr-only">Previous slide</span>
     </Button>
@@ -245,7 +245,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <div className="absolute size-full translate-x-[100%] translate-y-[-100%] rounded-full bg-drk transition  duration-700 ease-out hover:bg-drk group-hover:translate-x-0 group-hover:translate-y-0"></div>
+      <div className="absolute size-full -translate-y-full translate-x-full rounded-full bg-drk transition  duration-700 ease-out hover:bg-drk group-hover:translate-x-0 group-hover:translate-y-0"></div>
       <NextIcon className="rotate-180 group-hover:fill-prm" />
       <span className="sr-only">Next slide</span>
     </Button>

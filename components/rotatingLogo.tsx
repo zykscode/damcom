@@ -11,7 +11,7 @@ import {
   useTransform,
   useVelocity,
 } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 import CurvedText from './curvedText';
 
@@ -31,7 +31,7 @@ const RotatingLogo = ({ baseVelocity = 100 }) => {
     [-10, 0, 10], // Adjust the rotation speed range
     {
       clamp: false,
-    }
+    },
   );
 
   const [rotateDirection, setRotateDirection] = useState(1);

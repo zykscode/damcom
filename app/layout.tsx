@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 
 import AnimatedCursor from '#/components/animatedCursor';
 import Header from '#/components/header';
-import MouseTracker from '#/components/mouseTracker';
 import RotatingLogo from '#/components/rotatingLogo';
 import { TailwindIndicator } from '#/components/tailwind-indicator';
 import { Atyp, Suisse } from '#/lib/customFonts';
@@ -68,7 +67,6 @@ export default function RootLayout({
         >
           Drag
         </AnimatedCursor>
-        <MouseTracker />
       </body>
     </html>
   );

@@ -27,7 +27,7 @@ function AnimatedCursor(props: AnimatedCursorProps) {
 
   // Don't render the cursor on touch devices
   if (isTouchDevice) {
-    return null;
+    return true;
   }
 
   // Hide the system cursor

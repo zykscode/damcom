@@ -26,23 +26,23 @@ const CursorRender = ({
     <>
       <div
         ref={cursorOuterRef}
-        className={`${styles!.cursorOuter} ${isVisible ? styles!.visible : styles!.hidden}`}
+        className={`${styles?.cursorOuter} size-24 bg-green-400 ${isVisible ? styles?.visible : styles?.hidden}`}
         style={{
           ...coreStyles,
-          ...(options.outerStyle && options.outerStyle),
+          ...(options?.outerStyle && options.outerStyle),
         }}
       />
       <div
         ref={cursorInnerRef}
-        className={`size-full  ${isVisible ? styles!.visible : styles!.hidden}`}
+        className={`size-24 bg-yellow-300  ${isVisible ? styles?.visible : styles?.hidden}`}
         style={{
           ...coreStyles,
-          ...(options.innerStyle && options.innerStyle),
+          ...(options?.innerStyle && options.innerStyle),
         }}
       >
         <div
           style={{
-            opacity: !options.children ? 0 : 1,
+            opacity: !options?.children ? 0 : 1,
             transition: 'all 0.3s ease-in-out',
           }}
         >

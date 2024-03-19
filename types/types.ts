@@ -38,7 +38,7 @@ interface CursorRenderProps {
   cursorOuterRef: React.RefObject<HTMLDivElement>;
   isVisible: boolean;
   text?: string;
-  options: Options;
+  options: Options | undefined;
   styles?: CursorStyles;
 }
 

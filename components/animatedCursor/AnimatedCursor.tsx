@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 
+import CoreCursor from './CoreCursor';
+
 const AnimatedCursor = () => {
   const [hasMouse, setHasMouse] = useState(false);
 
@@ -23,7 +25,14 @@ const AnimatedCursor = () => {
     };
   }, []);
 
-  return hasMouse ? <div>AnimatedCursor mouse detected</div> : null;
+  useEffect(() => {
+    document.body.style.cursor = 'none';
+    return () => {
+      document.body.style.cursor = 'auto';
+    };
+  }, []);
+
+  return hasMouse ? <CoreCursor /> : null;
 };
 
 export default AnimatedCursor;

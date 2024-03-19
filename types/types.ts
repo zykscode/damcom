@@ -14,6 +14,34 @@ interface Options {
   outerStyle?: React.CSSProperties;
 }
 
+type CursorStyles = {
+  cursorOuter: {
+    width: string;
+    height: string;
+    backgroundColor: string;
+  };
+  cursorInner: {
+    width: string;
+    height: string;
+    backgroundColor: string;
+  };
+  visible: {
+    opacity: number;
+  };
+  hidden: {
+    opacity: number;
+  };
+};
+
+interface CursorRenderProps {
+  cursorInnerRef: React.RefObject<HTMLDivElement>;
+  cursorOuterRef: React.RefObject<HTMLDivElement>;
+  isVisible: boolean;
+  text?: string;
+  options: Options;
+  styles?: CursorStyles;
+}
+
 interface Coordinates {
   x: number;
   y: number;
@@ -34,4 +62,10 @@ interface AnimatedCursorProps {
   trailingSpeed?: number;
 }
 
-export type { AnimatedCursorProps, Clickable, Coordinates, Options };
+export type {
+  AnimatedCursorProps,
+  Clickable,
+  Coordinates,
+  CursorRenderProps,
+  Options,
+};

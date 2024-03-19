@@ -2,6 +2,7 @@ import '#/styles/globals.css';
 
 import type { Metadata } from 'next';
 
+import AnimatedCursor from '#/components/animatedCursor/AnimatedCursor';
 import Header from '#/components/header';
 import RotatingLogo from '#/components/rotatingLogo';
 import { TailwindIndicator } from '#/components/tailwind-indicator';
@@ -28,6 +29,7 @@ export default function RootLayout({
         </div>
         <RotatingLogo />
         <TailwindIndicator />
+        <AnimatedCursor />
         {/* <AnimatedCursor
           outerStyle={{
             border: '3px solid hsl(var(--drk))',

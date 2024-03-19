@@ -27,7 +27,8 @@ interface CursorCoreProps {
   outerStyle?: React.CSSProperties;
   trailingSpeed?: number;
   isVisible: boolean;
-  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>; 
+  
 }
 
 /**

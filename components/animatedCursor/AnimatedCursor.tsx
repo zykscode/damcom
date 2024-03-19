@@ -1,21 +1,19 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import CoreCursor from './CoreCursor';
 
 const AnimatedCursor = () => {
-  const [hasMouse, setHasMouse] = useState(false);
+  const handleMouseMove = () => {
+    // Handle mouse move logic here
+  };
+
+  const handleTouchStart = () => {
+    // Handle touch start logic here
+  };
 
   useEffect(() => {
-    const handleMouseMove = () => {
-      setHasMouse(true);
-    };
-
-    const handleTouchStart = () => {
-      setHasMouse(false);
-    };
-
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('touchstart', handleTouchStart);
 
@@ -23,7 +21,7 @@ const AnimatedCursor = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchstart', handleTouchStart);
     };
-  }, []);
+  }, [handleMouseMove, handleTouchStart]);
 
   useEffect(() => {
     document.body.style.cursor = 'none';
@@ -32,7 +30,7 @@ const AnimatedCursor = () => {
     };
   }, []);
 
-  return hasMouse ? <CoreCursor /> : null;
+  return <CoreCursor />;
 };
 
 export default AnimatedCursor;

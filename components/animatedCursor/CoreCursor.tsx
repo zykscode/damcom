@@ -13,8 +13,6 @@ const CoreCursor = ({ isVisible, options }: any) => {
   const requestRef = useRef<number | null>(null);
   const previousTimeRef = useRef<number | null>(null);
   const [coords, setCoords] = useState<Coordinates>({ x: 0, y: 0 });
-  const [hasMouse, setHasMouse] = useState(false);
-  const [isMouseOnScreen, setIsMouseOnScreen] = useState(false);
 
   const endX = useRef<number>(0);
   const endY = useRef<number>(0);
@@ -23,8 +21,6 @@ const CoreCursor = ({ isVisible, options }: any) => {
 
   // Handle mouse move event
   const onMouseMove = useCallback((event: MouseEvent) => {
-    setHasMouse(true);
-    setIsMouseOnScreen(true);
     const { clientX, clientY } = event;
     setCoords({ x: clientX, y: clientY });
     if (cursorInnerRef.current !== null) {
@@ -35,27 +31,10 @@ const CoreCursor = ({ isVisible, options }: any) => {
     endY.current = clientY;
   }, []);
 
-  // Handle touch start event
-  const onTouchStart = useCallback(() => {
-    setHasMouse(false);
-    setIsMouseOnScreen(false);
-  }, []);
-
-  // Handle touch end event
-  const onTouchEnd = useCallback(() => {
-    setHasMouse(false);
-    setIsMouseOnScreen(false);
-  }, []);
-
-  // Handle mouse leave event
-  const onMouseLeave = useCallback(() => {
-    setIsMouseOnScreen(false);
-  }, []);
-
   // Animate the outer cursor
   const animateOuterCursor = useCallback(
     (time: number) => {
-      if (previousTimeRef.current !== null && isMouseOnScreen) {
+      if (previousTimeRef.current !== null) {
         coords.x += (endX.current - coords.x) / trailingSpeed;
         coords.y += (endY.current - coords.y) / trailingSpeed;
         if (cursorOuterRef.current !== null) {
@@ -66,7 +45,7 @@ const CoreCursor = ({ isVisible, options }: any) => {
       previousTimeRef.current = time;
       requestRef.current = requestAnimationFrame(animateOuterCursor);
     },
-    [trailingSpeed, isMouseOnScreen],
+    [trailingSpeed],
   );
 
   useEffect(() => {
@@ -79,15 +58,16 @@ const CoreCursor = ({ isVisible, options }: any) => {
   }, [animateOuterCursor]);
 
   useEventListener('mousemove', onMouseMove);
-  useEventListener('touchstart', onTouchStart);
-  useEventListener('touchend', onTouchEnd);
-  useEventListener('mouseleave', onMouseLeave);
+  //   useEventListener('mousedown', onMouseDown);
+  //   useEventListener('mouseup', onMouseUp);
+  //   useEventListener('mouseover', onMouseEnterViewport);
+  //   useEventListener('mouseout', onMouseLeaveViewport);
 
   return (
     <CursorRender
       cursorInnerRef={cursorInnerRef}
       cursorOuterRef={cursorOuterRef}
-      isVisible={isVisible && hasMouse && isMouseOnScreen}
+      isVisible={isVisible}
       options={options}
     />
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const useIsTouchdevice = (): boolean => {
-  const [isTouchdevice, setIsTouchdevice] = useState<boolean>();
+  const [isTouchdevice, setIsTouchdevice] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -9,7 +9,7 @@ const useIsTouchdevice = (): boolean => {
     }
   }, []);
 
-  return isTouchdevice!;
+  return isTouchdevice;
 };
 
 export default useIsTouchdevice;

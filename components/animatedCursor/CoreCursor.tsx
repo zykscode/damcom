@@ -75,6 +75,7 @@ const CoreCursor = ({ isVisible, setIsVisible, options }: any) => {
         clientY <= window.innerHeight;
 
       if (isWithinViewport) {
+        console.log('inside view port');
         setIsVisible(true);
       }
     },
@@ -92,6 +93,7 @@ const CoreCursor = ({ isVisible, setIsVisible, options }: any) => {
         clientY > window.innerHeight;
 
       if (isOutsideViewport) {
+        console.log('outside view port');
         setIsVisible(false);
       }
     },

@@ -7,7 +7,7 @@
 // AnimatedCursor.tsx
 import React, { useEffect, useState } from 'react';
 
-import useIsTouchDevice from '#/hooks/useIsTouchdevice';
+import useIsTouchDevice from '#/hooks/useIsTouchDevice';
 import type { AnimatedCursorProps } from '#/types/types';
 
 import CursorCore from './CursorCore';

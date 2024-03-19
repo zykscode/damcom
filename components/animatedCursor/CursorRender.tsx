@@ -22,11 +22,13 @@ const CursorRender = ({
     transition:
       'opacity 0.15s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out',
   };
+
+  console.log(isVisible);
   return (
     <>
       <div
         ref={cursorOuterRef}
-        className={`${styles?.cursorOuter} size-24 bg-green-400 ${isVisible ? styles?.visible : styles?.hidden}`}
+        className={`${styles?.cursorOuter} size-24 bg-green-400 ${isVisible ? styles?.visible : 'hidden'}`}
         style={{
           ...coreStyles,
           ...(options?.outerStyle && options.outerStyle),
@@ -34,7 +36,7 @@ const CursorRender = ({
       />
       <div
         ref={cursorInnerRef}
-        className={`size-24 bg-yellow-300  ${isVisible ? styles?.visible : styles?.hidden}`}
+        className={`size-24 bg-yellow-300  ${isVisible ? styles?.visible : 'hidden'}`}
         style={{
           ...coreStyles,
           ...(options?.innerStyle && options.innerStyle),

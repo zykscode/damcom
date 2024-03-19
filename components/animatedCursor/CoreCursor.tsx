@@ -14,7 +14,7 @@ const CoreCursor = ({ isVisible, options }: any) => {
   const previousTimeRef = useRef<number | null>(null);
   const [coords, setCoords] = useState<Coordinates>({ x: 0, y: 0 });
   const [hasMouse, setHasMouse] = useState(false);
-  const [isMouseOnScreen, setIsMouseOnScreen] = useState(true);
+  const [isMouseOnScreen, setIsMouseOnScreen] = useState(false);
 
   const endX = useRef<number>(0);
   const endY = useRef<number>(0);
@@ -37,12 +37,14 @@ const CoreCursor = ({ isVisible, options }: any) => {
 
   // Handle touch start event
   const onTouchStart = useCallback(() => {
-    setHasMouse(true);
+    setHasMouse(false);
+    setIsMouseOnScreen(false);
   }, []);
 
   // Handle touch end event
   const onTouchEnd = useCallback(() => {
     setHasMouse(false);
+    setIsMouseOnScreen(false);
   }, []);
 
   // Handle mouse leave event
@@ -53,7 +55,7 @@ const CoreCursor = ({ isVisible, options }: any) => {
   // Animate the outer cursor
   const animateOuterCursor = useCallback(
     (time: number) => {
-      if (previousTimeRef.current !== null) {
+      if (previousTimeRef.current !== null && isMouseOnScreen) {
         coords.x += (endX.current - coords.x) / trailingSpeed;
         coords.y += (endY.current - coords.y) / trailingSpeed;
         if (cursorOuterRef.current !== null) {
@@ -64,7 +66,7 @@ const CoreCursor = ({ isVisible, options }: any) => {
       previousTimeRef.current = time;
       requestRef.current = requestAnimationFrame(animateOuterCursor);
     },
-    [trailingSpeed],
+    [trailingSpeed, isMouseOnScreen],
   );
 
   useEffect(() => {
